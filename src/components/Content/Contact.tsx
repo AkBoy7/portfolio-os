@@ -7,11 +7,49 @@ export const Contact = memo(() => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thanks for your message! (This is a demo form)");
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      // Using Formspree - you'll need to sign up at https://formspree.io
+      // and replace 'YOUR_FORM_ID' with your actual form ID
+      // Or use mailto as fallback
+      const response = await fetch("https://formspree.io/f/xkgqvglp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      // Fallback to mailto
+      const mailtoLink = `mailto:akambilbas@gmail.com?subject=Contact from ${encodeURIComponent(
+        formData.name
+      )}&body=${encodeURIComponent(
+        `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoLink;
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -26,7 +64,7 @@ export const Contact = memo(() => {
   const contactMethods = [
     {
       label: "Email",
-      value: "jane.doe@example.com",
+      value: "akambilbas@gmail.com",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -41,7 +79,7 @@ export const Contact = memo(() => {
     },
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/janedoe",
+      value: "https://www.linkedin.com/in/akam-bilbas-26070b241/",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -57,7 +95,7 @@ export const Contact = memo(() => {
     },
     {
       label: "GitHub",
-      value: "github.com/janedoe",
+      value: "https://github.com/AkBoy7",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -66,20 +104,6 @@ export const Contact = memo(() => {
           strokeWidth="2"
         >
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-        </svg>
-      ),
-    },
-    {
-      label: "Twitter",
-      value: "@janedoe",
-      icon: (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
         </svg>
       ),
     },
@@ -101,19 +125,48 @@ export const Contact = memo(() => {
         </svg>
         <h1 className={styles.title}>Get In Touch</h1>
         <p className={styles.subtitle}>
-          Let's connect and create something amazing together
+          Let's connect and find new opportunities together!
         </p>
       </div>
 
       <div className={styles.content}>
         <div className={styles.contactGrid}>
-          {contactMethods.map((method) => (
-            <div key={method.label} className={styles.contactCard}>
-              <div className={styles.contactIcon}>{method.icon}</div>
-              <h3 className={styles.contactLabel}>{method.label}</h3>
-              <p className={styles.contactValue}>{method.value}</p>
-            </div>
-          ))}
+          {contactMethods.map((method) => {
+            const isEmail = method.label === "Email";
+            const href = isEmail ? `mailto:${method.value}` : method.value;
+            const displayValue = isEmail
+              ? method.value
+              : method.label === "LinkedIn"
+              ? "View Profile"
+              : "View GitHub";
+
+            return (
+              <a
+                key={method.label}
+                href={href}
+                target={isEmail ? undefined : "_blank"}
+                rel={isEmail ? undefined : "noopener noreferrer"}
+                className={styles.contactCard}
+              >
+                <div className={styles.contactIcon}>{method.icon}</div>
+                <h3 className={styles.contactLabel}>{method.label}</h3>
+                <p className={styles.contactValue}>{displayValue}</p>
+                <div className={styles.cardArrow}>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </div>
+              </a>
+            );
+          })}
         </div>
 
         <div className={styles.formSection}>
@@ -164,20 +217,58 @@ export const Contact = memo(() => {
                 required
               />
             </div>
-            <button type="submit" className={styles.button}>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
-              Send Message
+            <button
+              type="submit"
+              className={styles.button}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className={styles.spinner}
+                  >
+                    <circle cx="12" cy="12" r="10" opacity="0.25" />
+                    <path
+                      d="M12 2a10 10 0 0 1 10 10"
+                      strokeLinecap="round"
+                      opacity="0.75"
+                    />
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                  Send Message
+                </>
+              )}
             </button>
+            {submitStatus === "success" && (
+              <div className={styles.successMessage}>
+                ✓ Message sent successfully! I'll get back to you soon.
+              </div>
+            )}
+            {submitStatus === "error" && (
+              <div className={styles.errorMessage}>
+                ✗ Failed to send message. Please try emailing directly.
+              </div>
+            )}
           </form>
         </div>
       </div>
