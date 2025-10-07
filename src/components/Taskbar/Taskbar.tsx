@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useWindowStore } from "../../store/windowStore";
 import { TaskbarItem } from "./TaskbarItem";
+import { StartMenu } from "./StartMenu";
 import styles from "./Taskbar.module.css";
 
 interface TaskbarProps {
@@ -16,6 +17,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({
   const restoreWindow = useWindowStore((state) => state.restoreWindow);
   const minimizeWindow = useWindowStore((state) => state.minimizeWindow);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
 
   const handleWindowClick = (id: string) => {
     const window = windows.find((w) => w.id === id);
@@ -59,12 +61,26 @@ export const Taskbar: React.FC<TaskbarProps> = ({
   return (
     <nav className={styles.taskbar} role="navigation" aria-label="Taskbar">
       <div className={styles.taskbarContent}>
+        <button
+          className={styles.startButton}
+          onClick={() => setIsStartMenuOpen(!isStartMenuOpen)}
+          aria-label="Start menu"
+          aria-expanded={isStartMenuOpen}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+        </button>
         <div className={styles.windowsSection}>
           {windows.map((window) => (
             <TaskbarItem
               key={window.id}
               id={window.id}
               title={window.title}
+              icon={window.icon}
               isMinimized={window.isMinimized}
               onClick={handleWindowClick}
             />
@@ -125,6 +141,10 @@ export const Taskbar: React.FC<TaskbarProps> = ({
           </div>
         </div>
       </div>
+      <StartMenu
+        isOpen={isStartMenuOpen}
+        onClose={() => setIsStartMenuOpen(false)}
+      />
     </nav>
   );
 };

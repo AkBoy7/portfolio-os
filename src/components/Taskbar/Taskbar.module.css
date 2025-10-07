@@ -14,11 +14,51 @@
 
 .taskbarContent {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
   justify-content: space-between;
   height: 100%;
   width: 100%;
+}
+
+.startButton {
+  width: 48px;
+  height: 48px;
+  background: var(--color-accent);
+  border: 3px solid var(--color-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text);
+  box-shadow: 0 2px 0 var(--color-border);
+  flex-shrink: 0;
+}
+
+.startButton svg {
+  transition: transform 0.3s ease;
+}
+
+.startButton:hover {
+  background: var(--color-accent);
+  border-color: var(--color-border);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 0 var(--color-border);
+}
+
+.startButton:hover svg {
+  transform: rotate(90deg);
+}
+
+.startButton:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.startButton:active svg {
+  transform: rotate(90deg) scale(0.95);
 }
 
 .windowsSection {

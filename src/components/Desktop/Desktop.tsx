@@ -36,6 +36,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     openWindow({
       id: config.id,
       title: config.windowTitle,
+      icon: config.icon,
       content: config.windowContent,
       position,
       size: config.defaultSize,
@@ -53,6 +54,12 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       tabIndex={-1}
     >
       <Wallpaper />
+      <div className={styles.decorativeShapes}>
+        <div className={styles.shape1} />
+        <div className={styles.shape2} />
+        <div className={styles.shape3} />
+        <div className={styles.shape4} />
+      </div>
       <div className={styles.content}>
         <nav aria-label="Portfolio sections">
           {iconConfigs.map((config) => (

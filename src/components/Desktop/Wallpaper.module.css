@@ -41,8 +41,10 @@
 .wallpaper::after {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: -50px;
+  left: -50px;
+  width: calc(100% + 100px);
+  height: calc(100% + 100px);
   background-image: radial-gradient(
       circle 80px at 15% 20%,
       var(--color-accent) 0%,
@@ -67,6 +69,31 @@
       circle 50px at 50% 50%,
       var(--color-primary) 0%,
       var(--color-primary) 100%
+    ),
+    radial-gradient(
+      circle 90px at 40% 10%,
+      var(--color-secondary) 0%,
+      var(--color-secondary) 100%
+    ),
+    radial-gradient(
+      circle 65px at 90% 45%,
+      var(--color-accent) 0%,
+      var(--color-accent) 100%
+    ),
+    radial-gradient(
+      circle 75px at 10% 60%,
+      var(--color-primary) 0%,
+      var(--color-primary) 100%
+    ),
+    radial-gradient(
+      circle 55px at 60% 90%,
+      var(--color-secondary) 0%,
+      var(--color-secondary) 100%
+    ),
+    radial-gradient(
+      circle 85px at 30% 75%,
+      var(--color-accent) 0%,
+      var(--color-accent) 100%
     );
   opacity: 0.3;
   pointer-events: none;
@@ -79,12 +106,12 @@
     transform: translate(0, 0);
   }
   25% {
-    transform: translate(10px, -15px);
+    transform: translate(8px, -12px);
   }
   50% {
-    transform: translate(-5px, 10px);
+    transform: translate(-4px, 8px);
   }
   75% {
-    transform: translate(15px, 5px);
+    transform: translate(12px, 4px);
   }
 }

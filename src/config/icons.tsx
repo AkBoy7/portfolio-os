@@ -24,69 +24,107 @@ const Contact = lazy(() =>
   }))
 );
 
-// Simple SVG icons for each section
+// High-quality SVG icons for each section
 const AboutIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="8" r="4" fill="currentColor" opacity="0.3" />
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="16" r="8" fill="currentColor" opacity="0.3" />
     <path
-      d="M12 14C8.13 14 5 15.79 5 18v2h14v-2c0-2.21-3.13-4-7-4z"
+      d="M24 28c-7.74 0-14 3.58-14 8v4h28v-4c0-4.42-6.26-8-14-8z"
       fill="currentColor"
     />
+    <circle cx="24" cy="16" r="7" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
 
 const ProjectsIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect
-      x="3"
-      y="3"
-      width="8"
-      height="8"
-      rx="2"
+      x="6"
+      y="6"
+      width="16"
+      height="16"
+      rx="3"
       fill="currentColor"
       opacity="0.3"
+      stroke="currentColor"
+      strokeWidth="2"
     />
-    <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor" />
-    <rect x="3" y="13" width="8" height="8" rx="2" fill="currentColor" />
     <rect
-      x="13"
-      y="13"
-      width="8"
-      height="8"
-      rx="2"
+      x="26"
+      y="6"
+      width="16"
+      height="16"
+      rx="3"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <rect
+      x="6"
+      y="26"
+      width="16"
+      height="16"
+      rx="3"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <rect
+      x="26"
+      y="26"
+      width="16"
+      height="16"
+      rx="3"
       fill="currentColor"
       opacity="0.3"
+      stroke="currentColor"
+      strokeWidth="2"
     />
   </svg>
 );
 
 const SkillsIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
-      d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+      d="M24 4L4 14v20c0 11.1 7.68 21.48 18 24 10.32-2.52 18-12.9 18-24V14L24 4z"
       fill="currentColor"
       opacity="0.3"
     />
     <path
-      d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
+      d="M24 6L6 15v19c0 9.94 6.88 19.24 16 21.5 9.12-2.26 16-11.56 16-21.5V15L24 6z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M20 34l-8-8 2.82-2.82L20 28.36l13.18-13.18L36 18l-16 16z"
       fill="currentColor"
     />
   </svg>
 );
 
 const ContactIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect
-      x="2"
-      y="4"
-      width="20"
-      height="16"
-      rx="2"
+      x="4"
+      y="8"
+      width="40"
+      height="32"
+      rx="4"
       fill="currentColor"
       opacity="0.3"
+      stroke="currentColor"
+      strokeWidth="2"
     />
     <path
-      d="M22 6l-10 7L2 6"
+      d="M4 12l20 14 20-14"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4 36l14-12M44 36L30 24"
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
@@ -102,7 +140,7 @@ export const iconConfigs: IconConfig[] = [
     position: { x: 40, y: 40 },
     windowContent: AboutMe,
     windowTitle: "About Me",
-    defaultSize: { width: 500, height: 400 },
+    defaultSize: { width: 700, height: 550 },
     minSize: { width: 300, height: 250 },
   },
   {
@@ -112,7 +150,7 @@ export const iconConfigs: IconConfig[] = [
     position: { x: 40, y: 180 },
     windowContent: Projects,
     windowTitle: "Projects",
-    defaultSize: { width: 600, height: 500 },
+    defaultSize: { width: 800, height: 600 },
     minSize: { width: 400, height: 300 },
   },
   {
@@ -122,7 +160,7 @@ export const iconConfigs: IconConfig[] = [
     position: { x: 40, y: 320 },
     windowContent: Skills,
     windowTitle: "Skills",
-    defaultSize: { width: 500, height: 400 },
+    defaultSize: { width: 700, height: 550 },
     minSize: { width: 300, height: 250 },
   },
   {
@@ -132,7 +170,7 @@ export const iconConfigs: IconConfig[] = [
     position: { x: 40, y: 460 },
     windowContent: Contact,
     windowTitle: "Contact",
-    defaultSize: { width: 450, height: 350 },
+    defaultSize: { width: 650, height: 500 },
     minSize: { width: 300, height: 250 },
   },
 ];

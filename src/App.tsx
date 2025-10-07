@@ -2,6 +2,7 @@ import { Suspense, useState } from "react";
 import Desktop from "./components/Desktop";
 import { Window } from "./components/Window";
 import { Taskbar } from "./components/Taskbar";
+import { MobileView } from "./components/MobileView";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { SkipLink } from "./components/SkipLink";
 import { KeyboardShortcutsHelp } from "./components/KeyboardShortcutsHelp";
@@ -9,11 +10,15 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { useWindowStore } from "./store/windowStore";
 import { useTheme } from "./hooks/useTheme";
+import { useIsMobile } from "./hooks/useIsMobile";
 import "./App.css";
 
 function App() {
   // Initialize theme on app load
   useTheme();
+
+  // Check if mobile/tablet view
+  const isMobile = useIsMobile(1024);
 
   // Loading state for initial app load
   const [isLoading, setIsLoading] = useState(true);
@@ -51,6 +56,18 @@ function App() {
   );
   const updateWindowSize = useWindowStore((state) => state.updateWindowSize);
 
+  // Render mobile view for tablets and phones
+  if (isMobile) {
+    return (
+      <ErrorBoundary>
+        {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
+        <MobileView onThemeClick={handleThemeClick} />
+        {showThemeSwitcher && <ThemeSwitcher onClose={handleOverlayClick} />}
+      </ErrorBoundary>
+    );
+  }
+
+  // Render desktop view for larger screens
   return (
     <ErrorBoundary>
       {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}

@@ -7,35 +7,8 @@
   padding: 12px;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 12px;
   outline: none;
-  animation: iconFloat 3s ease-in-out infinite;
-}
-
-@keyframes iconFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-.icon:hover {
-  transform: translateY(-8px);
-  animation: iconPulse 0.6s ease-in-out infinite;
-}
-
-@keyframes iconPulse {
-  0%,
-  100% {
-    transform: translateY(-8px) scale(1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.05);
-  }
 }
 
 .icon:focus-visible {
@@ -58,8 +31,6 @@
 }
 
 .icon:hover .iconImage {
-  transform: translateY(-2px) rotate(-5deg);
-  box-shadow: 0 6px 0 var(--color-primary);
   border-color: var(--color-primary);
   background: var(--color-surface-hover);
 }
@@ -108,22 +79,6 @@
     font-size: 16px;
     max-width: 120px;
   }
-
-  /* Adjust icon positions for tablet grid layout */
-  .icon:hover {
-    transform: translateY(-6px);
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .icon {
-    animation: none !important;
-  }
-
-  .icon:hover {
-    animation: none !important;
-  }
 }
 
 /* Mobile responsive design (< 768px) */
@@ -137,7 +92,6 @@
     background: var(--color-surface);
     border: 2px solid var(--color-border);
     box-shadow: 0 4px 8px var(--color-shadow);
-    animation: none;
   }
 
   .icon:active {
@@ -159,10 +113,5 @@
   .iconLabel {
     font-size: 15px;
     max-width: 100%;
-  }
-
-  /* Remove hover effect on mobile, use active state instead */
-  .icon:hover {
-    transform: none;
   }
 }

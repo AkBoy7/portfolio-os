@@ -10,16 +10,10 @@ interface IconProps {
 export const Icon: React.FC<IconProps> = memo(({ config, onDoubleClick }) => {
   const isMobile = window.innerWidth < 768;
 
-  const handleDoubleClick = useCallback(() => {
+  const handleClick = useCallback(() => {
+    // Use single click for all devices
     onDoubleClick(config);
   }, [config, onDoubleClick]);
-
-  const handleClick = useCallback(() => {
-    // On mobile, use single click instead of double-click
-    if (isMobile) {
-      onDoubleClick(config);
-    }
-  }, [isMobile, config, onDoubleClick]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -42,7 +36,6 @@ export const Icon: React.FC<IconProps> = memo(({ config, onDoubleClick }) => {
             }
       }
       onClick={handleClick}
-      onDoubleClick={handleDoubleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"

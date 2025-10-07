@@ -1,6 +1,7 @@
 import type { Theme } from "./types";
 
 export const themes: Theme[] = [
+  // 🌸 Sakura Dreams (kept original)
   {
     id: "sakura",
     name: "Sakura Dreams",
@@ -20,6 +21,8 @@ export const themes: Theme[] = [
       overlay: "rgba(255, 232, 240, 0.9)",
     },
   },
+
+  // 🌿 Mint Breeze (kept original)
   {
     id: "mint",
     name: "Mint Breeze",
@@ -39,42 +42,67 @@ export const themes: Theme[] = [
       overlay: "rgba(232, 248, 245, 0.9)",
     },
   },
+
+  // 💜 Dreamscape
   {
-    id: "lavender",
-    name: "Lavender Fields",
+    id: "dreamscape",
+    name: "Dreamscape",
     colors: {
-      background: "#F0EDF7",
-      backgroundGradient: "linear-gradient(135deg, #F0EDF7 0%, #E0D9F0 100%)",
+      background: "#F3EEFB",
+      backgroundGradient: "linear-gradient(135deg, #F3EEFB 0%, #E7E2FA 100%)",
       surface: "#FFFFFF",
-      surfaceHover: "#F8F6FB",
-      border: "#9B59B6",
-      text: "#2C1A3D",
-      textSecondary: "#5D4A6F",
-      primary: "#9B59B6",
-      secondary: "#3498DB",
-      accent: "#F1C40F",
-      danger: "#E74C3C",
-      shadow: "rgba(0, 0, 0, 0.15)",
-      overlay: "rgba(240, 237, 247, 0.9)",
+      surfaceHover: "#F9F7FD",
+      border: "#A98DD8",
+      text: "#2E1D45",
+      textSecondary: "#5C4B73",
+      primary: "#A98DD8",
+      secondary: "#7FDAD0",
+      accent: "#FFC9A9",
+      danger: "#EB6E6E",
+      shadow: "rgba(0, 0, 0, 0.1)",
+      overlay: "rgba(243, 238, 251, 0.9)",
     },
   },
+
+  // 🍑 Apricot Glow
   {
-    id: "peach",
-    name: "Peachy Keen",
+    id: "apricot",
+    name: "Apricot Glow",
     colors: {
-      background: "#FFF4E6",
-      backgroundGradient: "linear-gradient(135deg, #FFF4E6 0%, #FFE8CC 100%)",
+      background: "#FFF7E8",
+      backgroundGradient: "linear-gradient(135deg, #FFF7E8 0%, #FFEFD0 100%)",
       surface: "#FFFFFF",
-      surfaceHover: "#FFFAF2",
-      border: "#FF8C42",
-      text: "#3D2817",
-      textSecondary: "#6B4E3D",
-      primary: "#FF8C42",
-      secondary: "#16A085",
-      accent: "#E056FD",
-      danger: "#C0392B",
-      shadow: "rgba(0, 0, 0, 0.15)",
-      overlay: "rgba(255, 244, 230, 0.9)",
+      surfaceHover: "#FFF9F1",
+      border: "#FFB46C",
+      text: "#3D2714",
+      textSecondary: "#6A4B2D",
+      primary: "#FFB46C",
+      secondary: "#FF9AA2",
+      accent: "#FFD1B3",
+      danger: "#D65C5C",
+      shadow: "rgba(0, 0, 0, 0.1)",
+      overlay: "rgba(255, 247, 232, 0.9)",
+    },
+  },
+
+  // 🌌 Pastel Twilight
+  {
+    id: "twilight",
+    name: "Pastel Twilight",
+    colors: {
+      background: "#F1F3FF",
+      backgroundGradient: "linear-gradient(135deg, #F1F3FF 0%, #EAE9FF 100%)",
+      surface: "#FFFFFF",
+      surfaceHover: "#FAFAFF",
+      border: "#B0A8FF",
+      text: "#2A2540",
+      textSecondary: "#5C5785",
+      primary: "#B0A8FF",
+      secondary: "#FFB3C6",
+      accent: "#A7F0E1",
+      danger: "#F76C6C",
+      shadow: "rgba(0, 0, 0, 0.12)",
+      overlay: "rgba(241, 243, 255, 0.9)",
     },
   },
 ];

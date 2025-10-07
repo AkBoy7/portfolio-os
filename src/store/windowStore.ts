@@ -94,9 +94,14 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
 
   minimizeWindow: (id) => {
     set((state) => ({
-      windows: state.windows.map((w) =>
-        w.id === id ? { ...w, isMinimized: true } : w
-      ),
+      windows: state.windows.map((w) => {
+        if (w.id === id) {
+          // Just set minimized flag, keep all other state including size/position
+          // This ensures the window remembers its size when restored
+          return { ...w, isMinimized: true };
+        }
+        return w;
+      }),
     }));
   },
 
@@ -117,6 +122,9 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
             position: { x: 0, y: 0 },
             size: { width: maxWidth, height: maxHeight },
           };
+        } else if (w.id !== id) {
+          // Minimize all other windows when maximizing one
+          return { ...w, isMinimized: true };
         }
         return w;
       }),
@@ -129,15 +137,14 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
       return {
         windows: state.windows.map((w) => {
           if (w.id === id) {
+            // Restore from maximized state
             if (w.isMaximized && w.previousPosition && w.previousSize) {
-              // Validate restored position and size
               const validatedPosition = validatePosition(
                 w.previousPosition,
                 w.previousSize
               );
               const validatedSize = validateSize(w.previousSize, w.minSize);
 
-              // Restore from maximized
               return {
                 ...w,
                 isMaximized: false,
@@ -147,8 +154,9 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
                 previousSize: undefined,
                 zIndex: zIndexCounter,
               };
-            } else if (w.isMinimized) {
-              // Restore from minimized - validate current position/size
+            }
+            // Restore from minimized state
+            else if (w.isMinimized) {
               const validatedPosition = validatePosition(w.position, w.size);
               const validatedSize = validateSize(w.size, w.minSize);
 

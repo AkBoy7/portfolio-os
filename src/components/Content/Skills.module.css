@@ -1,166 +1,130 @@
 .container {
-  padding: 24px;
-  height: 100%;
-  overflow-y: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .header {
-  margin-bottom: 32px;
   text-align: center;
+  margin-bottom: 48px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headerIcon {
+  color: var(--color-accent);
+  margin-bottom: 16px;
 }
 
 .title {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--color-text-secondary);
   margin: 0;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 .category {
   background: var(--color-surface);
+  border: 3px solid var(--color-border);
   border-radius: 16px;
-  border: 2px solid var(--color-border);
   padding: 24px;
-  box-shadow: 0 2px 8px var(--color-shadow);
+  transition: transform 0.2s ease;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.category:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.category:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.category:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.category:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.category:hover {
+  transform: translateY(-4px);
 }
 
 .categoryTitle {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: var(--color-text);
-  margin: 0 0 20px 0;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.skillsList {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.categoryIcon {
-  font-size: 28px;
-}
-
-.skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.skillItem {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-secondary)
-  );
+.skillTag {
+  padding: 8px 16px;
+  background: var(--color-primary);
   border: 2px solid var(--color-border);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px var(--color-shadow);
-}
-
-.skillItem:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--color-shadow);
-}
-
-.skillIcon {
-  font-size: 32px;
-  margin-bottom: 8px;
-}
-
-.skillName {
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text);
-  margin: 0;
+  transition: all 0.2s ease;
 }
 
-.skillLevel {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  margin: 4px 0 0 0;
+.skillTag:hover {
+  background: var(--color-accent);
+  transform: scale(1.05);
 }
 
-/* Mobile responsive design (< 768px) */
 @media (max-width: 767px) {
-  .container {
-    padding: 16px;
-  }
-
-  .header {
-    margin-bottom: 24px;
+  .grid {
+    grid-template-columns: 1fr;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .subtitle {
-    font-size: 14px;
-  }
-
-  .content {
-    gap: 24px;
-  }
-
-  .category {
-    padding: 16px;
-    border-radius: 12px;
-  }
-
-  .categoryTitle {
-    font-size: 20px;
-    margin-bottom: 16px;
-    gap: 10px;
-  }
-
-  .categoryIcon {
-    font-size: 24px;
-  }
-
-  .skillsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-  }
-
-  .skillItem {
-    padding: 12px;
-    border-radius: 10px;
-  }
-
-  .skillItem:active {
-    transform: scale(0.95);
-  }
-
-  .skillIcon {
-    font-size: 28px;
-    margin-bottom: 6px;
-  }
-
-  .skillName {
-    font-size: 13px;
-  }
-
-  .skillLevel {
-    font-size: 11px;
-    margin-top: 3px;
-  }
-
-  /* Remove hover effect on mobile */
-  .skillItem:hover {
-    transform: none;
-    box-shadow: 0 2px 4px var(--color-shadow);
+    font-size: 16px;
   }
 }

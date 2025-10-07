@@ -4,12 +4,13 @@ import styles from "./TaskbarItem.module.css";
 interface TaskbarItemProps {
   id: string;
   title: string;
+  icon?: React.ReactNode;
   isMinimized?: boolean;
   onClick: (id: string) => void;
 }
 
 export const TaskbarItem = memo(
-  ({ id, title, isMinimized, onClick }: TaskbarItemProps) => {
+  ({ id, title, icon, isMinimized, onClick }: TaskbarItemProps) => {
     const handleClick = useCallback(() => {
       onClick(id);
     }, [id, onClick]);
@@ -36,6 +37,7 @@ export const TaskbarItem = memo(
         aria-label={isMinimized ? `Restore ${title}` : `Minimize ${title}`}
         title={title}
       >
+        {icon && <span className={styles.icon}>{icon}</span>}
         <span className={styles.title}>{title}</span>
       </button>
     );

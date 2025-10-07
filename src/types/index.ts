@@ -13,6 +13,7 @@ export interface Size {
 export interface WindowState {
   id: string;
   title: string;
+  icon?: React.ReactNode;
   content: React.ComponentType;
   position: Position;
   size: Size;

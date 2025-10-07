@@ -4,51 +4,40 @@ import styles from "./Skills.module.css";
 export const Skills = memo(() => {
   const skillCategories = [
     {
-      title: "Frontend Development",
-      icon: "💻",
+      title: "Frontend",
       skills: [
-        { name: "React", icon: "⚛️", level: "Expert" },
-        { name: "TypeScript", icon: "📘", level: "Expert" },
-        { name: "JavaScript", icon: "🟨", level: "Expert" },
-        { name: "HTML/CSS", icon: "🎨", level: "Expert" },
-        { name: "Tailwind CSS", icon: "🌊", level: "Advanced" },
-        { name: "Next.js", icon: "▲", level: "Advanced" },
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "HTML/CSS",
+        "Tailwind",
+        "Next.js",
       ],
     },
     {
-      title: "Backend Development",
-      icon: "⚙️",
+      title: "Backend",
       skills: [
-        { name: "Node.js", icon: "🟢", level: "Advanced" },
-        { name: "Express", icon: "🚂", level: "Advanced" },
-        { name: "PostgreSQL", icon: "🐘", level: "Intermediate" },
-        { name: "MongoDB", icon: "🍃", level: "Intermediate" },
-        { name: "REST APIs", icon: "🔌", level: "Expert" },
-        { name: "GraphQL", icon: "◈", level: "Intermediate" },
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "MongoDB",
+        "REST APIs",
+        "GraphQL",
       ],
     },
     {
-      title: "Tools & Technologies",
-      icon: "🛠️",
-      skills: [
-        { name: "Git", icon: "📦", level: "Expert" },
-        { name: "Docker", icon: "🐳", level: "Intermediate" },
-        { name: "Figma", icon: "🎯", level: "Advanced" },
-        { name: "VS Code", icon: "💙", level: "Expert" },
-        { name: "Webpack", icon: "📦", level: "Intermediate" },
-        { name: "Vite", icon: "⚡", level: "Advanced" },
-      ],
+      title: "Tools",
+      skills: ["Git", "Docker", "Figma", "VS Code", "Webpack", "Vite"],
     },
     {
       title: "Soft Skills",
-      icon: "🌟",
       skills: [
-        { name: "Communication", icon: "💬", level: "Expert" },
-        { name: "Teamwork", icon: "🤝", level: "Expert" },
-        { name: "Problem Solving", icon: "🧩", level: "Expert" },
-        { name: "Time Management", icon: "⏰", level: "Advanced" },
-        { name: "Leadership", icon: "👑", level: "Advanced" },
-        { name: "Mentoring", icon: "🎓", level: "Advanced" },
+        "Communication",
+        "Teamwork",
+        "Problem Solving",
+        "Leadership",
+        "Mentoring",
+        "Time Management",
       ],
     },
   ];
@@ -56,24 +45,32 @@ export const Skills = memo(() => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className={styles.headerIcon}
+        >
+          <polygon points="12 2 2 7 12 12 22 7 12 2" />
+          <polyline points="2 17 12 22 22 17" />
+          <polyline points="2 12 12 17 22 12" />
+        </svg>
         <h1 className={styles.title}>Skills & Expertise</h1>
         <p className={styles.subtitle}>Technologies and tools I work with</p>
       </div>
 
-      <div className={styles.content}>
+      <div className={styles.grid}>
         {skillCategories.map((category) => (
           <div key={category.title} className={styles.category}>
-            <h2 className={styles.categoryTitle}>
-              <span className={styles.categoryIcon}>{category.icon}</span>
-              {category.title}
-            </h2>
-            <div className={styles.skillsGrid}>
+            <h2 className={styles.categoryTitle}>{category.title}</h2>
+            <div className={styles.skillsList}>
               {category.skills.map((skill) => (
-                <div key={skill.name} className={styles.skillItem}>
-                  <div className={styles.skillIcon}>{skill.icon}</div>
-                  <p className={styles.skillName}>{skill.name}</p>
-                  <p className={styles.skillLevel}>{skill.level}</p>
-                </div>
+                <span key={skill} className={styles.skillTag}>
+                  {skill}
+                </span>
               ))}
             </div>
           </div>
