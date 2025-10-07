@@ -1,0 +1,137 @@
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--color-border);
+  cursor: move;
+  user-select: none;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+  margin-right: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 4px var(--color-shadow);
+  line-height: 1;
+  padding: 0;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px var(--color-shadow);
+  border-color: var(--color-accent);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.95);
+  transition: all 0.1s ease;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.minimizeButton {
+  composes: button;
+}
+
+.maximizeButton {
+  composes: button;
+}
+
+.closeButton {
+  composes: button;
+  background: var(--color-danger);
+  color: white;
+}
+
+.closeButton:hover {
+  filter: brightness(1.15);
+  transform: translateY(-3px) scale(1.1) rotate(90deg);
+}
+
+/* Tablet responsive design (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .button {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .titleBar {
+    padding: 14px 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+}
+
+/* Mobile responsive design (< 768px) */
+@media (max-width: 767px) {
+  .titleBar {
+    padding: 10px 12px;
+    cursor: default; /* Disable drag on mobile */
+  }
+
+  .title {
+    font-size: 15px;
+    margin-right: 8px;
+  }
+
+  .button {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    border-radius: 10px;
+    min-width: 44px; /* Ensure touch target size */
+    min-height: 44px;
+  }
+
+  .controls {
+    gap: 6px;
+  }
+
+  /* Hide minimize button on mobile to simplify */
+  .minimizeButton {
+    display: none;
+  }
+}

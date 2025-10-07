@@ -1,0 +1,133 @@
+.themeOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.themeOption:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 12px var(--color-shadow);
+  background: var(--color-surface-hover);
+  border-color: var(--color-accent);
+}
+
+.themeOption:active {
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.themeOption:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.themeOption.selected {
+  border-color: var(--color-accent);
+  border-width: 3px;
+  background: var(--color-surface-hover);
+}
+
+.colorSwatches {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.themeOption:hover .swatch {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.themeOption:hover .swatch:nth-child(2) {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.themeOption:hover .swatch:nth-child(3) {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.themeName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.checkmark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: var(--color-accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Mobile responsive design (< 768px) */
+@media (max-width: 767px) {
+  .themeOption {
+    padding: 10px;
+    gap: 6px;
+    border-radius: 10px;
+  }
+
+  .themeOption:active {
+    transform: scale(0.95);
+  }
+
+  .colorSwatches {
+    gap: 3px;
+  }
+
+  .swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  .themeName {
+    font-size: 13px;
+  }
+
+  .checkmark {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    top: 6px;
+    right: 6px;
+  }
+
+  /* Remove hover effect on mobile */
+  .themeOption:hover {
+    transform: none;
+    box-shadow: 0 2px 4px var(--color-shadow);
+    background: var(--color-surface);
+  }
+
+  .themeOption.selected:hover {
+    background: var(--color-surface-hover);
+  }
+}

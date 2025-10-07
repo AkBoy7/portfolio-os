@@ -1,0 +1,169 @@
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  box-shadow: 0 10px 25px var(--color-shadow), 0 6px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease,
+    background-color 0.5s ease;
+}
+
+.window:hover {
+  box-shadow: 0 12px 30px var(--color-shadow), 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Focused window has enhanced shadow and brighter border */
+.window.focused {
+  border-color: var(--color-primary);
+  box-shadow: 0 15px 35px var(--color-shadow), 0 10px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 1px var(--color-primary);
+}
+
+/* Keyboard focus indicator */
+.window:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.window.minimized {
+  display: none;
+}
+
+/* Animation classes */
+.window.opening {
+  animation: windowOpen 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.window.closing {
+  animation: windowClose 0.25s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+.window.minimizing {
+  animation: windowMinimize 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.window.maximizing {
+  animation: windowMaximize 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.window.restoring {
+  animation: windowRestore 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Window Open Animation - Scale up with fade and bounce */
+@keyframes windowOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Window Close Animation - Scale down with fade */
+@keyframes windowClose {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+}
+
+/* Window Minimize Animation - Slide to taskbar at bottom */
+@keyframes windowMinimize {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.5) translateY(50vh);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.1) translateY(100vh);
+  }
+}
+
+/* Window Maximize Animation - Expand with bounce */
+@keyframes windowMaximize {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Window Restore Animation - Shrink with bounce */
+@keyframes windowRestore {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Reduced motion support - disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .window.opening,
+  .window.closing,
+  .window.minimizing,
+  .window.maximizing,
+  .window.restoring {
+    animation: none;
+  }
+
+  .window {
+    transition: none;
+  }
+
+  /* Provide instant feedback instead of animations */
+  .window.closing,
+  .window.minimizing {
+    opacity: 0;
+  }
+}
+
+/* Mobile responsive design (< 768px) */
+@media (max-width: 767px) {
+  .window {
+    /* Near-full-screen on mobile */
+    position: fixed !important;
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 68px !important; /* Space for taskbar */
+    width: auto !important;
+    height: auto !important;
+    border-radius: 12px;
+    border-width: 2px;
+  }
+
+  /* Maximized windows take full available space */
+  .window.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 60px !important;
+    border-radius: 0;
+  }
+}

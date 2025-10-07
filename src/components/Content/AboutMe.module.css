@@ -1,0 +1,193 @@
+.container {
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.photoPlaceholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  border: 3px solid var(--color-border);
+}
+
+.photoIcon {
+  font-size: 48px;
+}
+
+.intro {
+  flex: 1;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 8px 0;
+}
+
+.title {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.experienceItem {
+  padding: 16px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.jobTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 4px 0;
+}
+
+.company {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0 0 12px 0;
+}
+
+.education {
+  padding: 16px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.degree {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 4px 0;
+}
+
+.school {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Mobile responsive design (< 768px) */
+@media (max-width: 767px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .content {
+    gap: 24px;
+  }
+
+  .photoSection {
+    padding: 16px;
+  }
+
+  .photoPlaceholder {
+    width: 120px;
+    height: 120px;
+    font-size: 48px;
+  }
+
+  .name {
+    font-size: 22px;
+    margin-top: 12px;
+  }
+
+  .role {
+    font-size: 14px;
+  }
+
+  .bioSection {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .bioText {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .highlights {
+    gap: 10px;
+  }
+
+  .highlightItem {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,166 @@
+.container {
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.category {
+  background: var(--color-surface);
+  border-radius: 16px;
+  border: 2px solid var(--color-border);
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.categoryTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.categoryIcon {
+  font-size: 28px;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.skillItem {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.skillItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.skillIcon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.skillName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.skillLevel {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 4px 0 0 0;
+}
+
+/* Mobile responsive design (< 768px) */
+@media (max-width: 767px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .content {
+    gap: 24px;
+  }
+
+  .category {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .categoryTitle {
+    font-size: 20px;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+
+  .categoryIcon {
+    font-size: 24px;
+  }
+
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .skillItem {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .skillItem:active {
+    transform: scale(0.95);
+  }
+
+  .skillIcon {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .skillName {
+    font-size: 13px;
+  }
+
+  .skillLevel {
+    font-size: 11px;
+    margin-top: 3px;
+  }
+
+  /* Remove hover effect on mobile */
+  .skillItem:hover {
+    transform: none;
+    box-shadow: 0 2px 4px var(--color-shadow);
+  }
+}
