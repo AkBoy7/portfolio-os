@@ -18,8 +18,8 @@ export const AboutMe = memo(() => {
             <circle cx="12" cy="7" r="4" />
           </svg>
         </div>
-        <h1 className={styles.name}>Jane Doe</h1>
-        <p className={styles.role}>Full Stack Developer & Designer</p>
+        <h1 className={styles.name}>Akam Bilbas</h1>
+        <p className={styles.role}>Software Engineer & Back-End Developer</p>
         <div className={styles.badges}>
           <span className={styles.badge}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

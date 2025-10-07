@@ -18,6 +18,7 @@ export const useWindowManager = () => {
   const handleOpenWindow = (windowData: {
     id: string;
     title: string;
+    icon?: React.ReactNode;
     content: React.ComponentType;
     position: Position;
     size: Size;

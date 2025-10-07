@@ -50,8 +50,8 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
             </svg>
           </div>
           <div className={styles.profileInfo}>
-            <h3>Jane Doe</h3>
-            <p>Full Stack Developer</p>
+            <h3>Akam Bilbas</h3>
+            <p>Software Engineer & Back-End Developer</p>
           </div>
         </div>
 
