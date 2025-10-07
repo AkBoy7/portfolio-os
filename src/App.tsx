@@ -11,6 +11,7 @@ import { LoadingScreen } from "./components/LoadingScreen";
 import { useWindowStore } from "./store/windowStore";
 import { useTheme } from "./hooks/useTheme";
 import { useIsMobile } from "./hooks/useIsMobile";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
   // Render desktop view for larger screens
   return (
     <ErrorBoundary>
+      <Analytics />
       {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
       <SkipLink />
       <Desktop>

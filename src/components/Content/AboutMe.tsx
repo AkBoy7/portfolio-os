@@ -25,13 +25,13 @@ export const AboutMe = memo(() => {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            5+ Years Experience
+            2+ Years Experience
           </span>
           <span className={styles.badge}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.21 9l-4.38-6.56a1 1 0 00-1.66 0L6.79 9H2a1 1 0 00-.78 1.63l9.4 11.84a1 1 0 001.56 0l9.4-11.84A1 1 0 0022 9h-4.79z" />
             </svg>
-            Award Winner
+            Project Starter
           </span>
         </div>
       </div>
@@ -54,13 +54,15 @@ export const AboutMe = memo(() => {
           </div>
           <p className={styles.bio}>
             Hello! I'm a passionate developer who loves creating beautiful and
-            functional web experiences. With a background in both design and
-            development, I bring a unique perspective to every project.
+            functional software and (web) applications. With a background in
+            software development, AI and managing software, I bring a unique
+            perspective to every project.
           </p>
           <p className={styles.bio}>
-            I specialize in building modern web applications using React,
-            TypeScript, and Node.js. When I'm not coding, you can find me
-            exploring new design trends or enjoying a cup of coffee.
+            I specialize in building complex backend systems for sites and
+            applications, and dabble in Frotend with agentic AI. When I'm not
+            coding, you can find me exploring new projects, having fun in a game
+            or climbing a tough boulder.
           </p>
         </section>
 
@@ -83,25 +85,26 @@ export const AboutMe = memo(() => {
             <div className={styles.timelineItem}>
               <div className={styles.timelineDot} />
               <div className={styles.timelineContent}>
-                <h3>Senior Frontend Developer</h3>
-                <p className={styles.company}>Tech Company Inc.</p>
-                <p className={styles.period}>2021 - Present</p>
+                <h3>Backend Engineer</h3>
+                <p className={styles.company}>Codeflex, Eindhoven</p>
+                <p className={styles.period}>2024 - Present</p>
                 <p className={styles.description}>
-                  Leading frontend development for enterprise applications,
-                  mentoring junior developers, and implementing modern design
-                  systems.
+                  Working as a backend engineer developing scalable systems
+                  using Python and JavaScript/TypeScript. Building robust APIs
+                  and backend infrastructure.
                 </p>
               </div>
             </div>
             <div className={styles.timelineItem}>
               <div className={styles.timelineDot} />
               <div className={styles.timelineContent}>
-                <h3>Full Stack Developer</h3>
-                <p className={styles.company}>Startup Co.</p>
-                <p className={styles.period}>2019 - 2021</p>
+                <h3>Master Thesis Internship</h3>
+                <p className={styles.company}>Philips, Best, Netherlands</p>
+                <p className={styles.period}>2023-2024</p>
                 <p className={styles.description}>
-                  Built and maintained full-stack applications, collaborated
-                  with designers, and contributed to product strategy.
+                  Conducted research on software analysis for master thesis.
+                  Worked extensively with Python and C++ to analyze and improve
+                  software systems.
                 </p>
               </div>
             </div>
@@ -124,9 +127,14 @@ export const AboutMe = memo(() => {
             <h2>Education</h2>
           </div>
           <div className={styles.education}>
-            <h3>Bachelor of Science in Computer Science</h3>
-            <p className={styles.school}>University Name</p>
-            <p className={styles.period}>2015 - 2019</p>
+            <h3>Master of Science in Computer Science and Engineering</h3>
+            <p className={styles.school}>TU Eindhoven</p>
+            <p className={styles.period}>2021 - 2024</p>
+          </div>
+          <div className={styles.education}>
+            <h3>Bachelor of Science in Computer Science and Engineering</h3>
+            <p className={styles.school}>TU Eindhoven</p>
+            <p className={styles.period}>2018 - 2021</p>
           </div>
         </section>
       </div>
