@@ -30,10 +30,10 @@ export const useWindowManager = () => {
     // Set closing state for animation
     setWindowClosing(id, true);
 
-    // Remove window after animation completes (200ms based on design)
+    // Remove window after animation completes (350ms)
     setTimeout(() => {
       closeWindow(id);
-    }, 200);
+    }, 350);
   };
 
   const handleMinimizeWindow = (id: string) => {

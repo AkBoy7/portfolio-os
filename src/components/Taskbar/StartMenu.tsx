@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useWeather } from "../../hooks/useWeather";
+import { getWeatherInfo } from "../../utils/weatherIcons";
 import styles from "./StartMenu.module.css";
 
 interface StartMenuProps {
@@ -8,6 +10,7 @@ interface StartMenuProps {
 
 export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const { weather, isLoading } = useWeather();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -54,28 +57,60 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
 
         <div className={styles.weather}>
           <div className={styles.weatherIcon}>
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <circle cx="12" cy="12" r="5" />
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
+            {isLoading ? (
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className={styles.loadingIcon}
+              >
+                <circle cx="12" cy="12" r="10" opacity="0.25" />
+                <path
+                  d="M12 2a10 10 0 0 1 10 10"
+                  strokeLinecap="round"
+                  opacity="0.75"
+                />
+              </svg>
+            ) : weather ? (
+              <div className={styles.weatherIconWrapper}>
+                {getWeatherInfo(weather.weatherCode, weather.isDay).icon}
+              </div>
+            ) : (
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
           </div>
           <div className={styles.weatherDetails}>
-            <div className={styles.temp}>72°F</div>
-            <div className={styles.condition}>Sunny</div>
+            <div className={styles.temp}>
+              {isLoading ? "--°" : weather ? `${weather.temperature}°C` : "--°"}
+            </div>
+            <div className={styles.condition}>
+              {isLoading
+                ? "Loading..."
+                : weather
+                ? getWeatherInfo(weather.weatherCode, weather.isDay).description
+                : "Eindhoven"}
+            </div>
+            <div className={styles.location}>Eindhoven, NL</div>
           </div>
         </div>
 

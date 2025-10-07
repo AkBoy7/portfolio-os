@@ -52,6 +52,10 @@ export const MobileView: React.FC<MobileViewProps> = ({ onThemeClick }) => {
           <div className={styles.mobileShape1} />
           <div className={styles.mobileShape2} />
           <div className={styles.mobileShape3} />
+          <div className={styles.mobileShape4} />
+          <div className={styles.mobileShape5} />
+          <div className={styles.mobileShape6} />
+          <div className={styles.mobileShape7} />
         </div>
         <div className={styles.statusBar}>
           <span className={styles.time}>{formatTime()}</span>

@@ -46,7 +46,8 @@ function App() {
 
   // Get window state and actions from store
   const windows = useWindowStore((state) => state.windows);
-  const closeWindow = useWindowStore((state) => state.closeWindow);
+  const setWindowClosing = useWindowStore((state) => state.setWindowClosing);
+  const closeWindowDirect = useWindowStore((state) => state.closeWindow);
   const minimizeWindow = useWindowStore((state) => state.minimizeWindow);
   const maximizeWindow = useWindowStore((state) => state.maximizeWindow);
   const restoreWindow = useWindowStore((state) => state.restoreWindow);
@@ -55,6 +56,14 @@ function App() {
     (state) => state.updateWindowPosition
   );
   const updateWindowSize = useWindowStore((state) => state.updateWindowSize);
+
+  // Close window with animation
+  const closeWindow = (id: string) => {
+    setWindowClosing(id, true);
+    setTimeout(() => {
+      closeWindowDirect(id);
+    }, 350);
+  };
 
   // Render mobile view for tablets and phones
   if (isMobile) {

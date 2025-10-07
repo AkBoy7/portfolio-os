@@ -59,6 +59,12 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         <div className={styles.shape2} />
         <div className={styles.shape3} />
         <div className={styles.shape4} />
+        <div className={styles.shape5} />
+        <div className={styles.shape6} />
+        <div className={styles.shape7} />
+        <div className={styles.shape8} />
+        <div className={styles.shape9} />
+        <div className={styles.shape10} />
       </div>
       <div className={styles.content}>
         <nav aria-label="Portfolio sections">

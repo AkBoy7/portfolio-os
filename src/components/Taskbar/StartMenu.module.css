@@ -84,6 +84,20 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.weatherIconWrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weatherIconWrapper svg {
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .weatherDetails {
@@ -102,6 +116,27 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text-secondary);
+}
+
+.location {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.loadingIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .dateSection {

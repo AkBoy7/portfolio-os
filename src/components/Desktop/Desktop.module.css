@@ -75,6 +75,78 @@
   animation: floatShape4 22s ease-in-out infinite;
 }
 
+.shape5 {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  top: 35%;
+  right: 8%;
+  opacity: 0.3;
+  animation: floatShape5 19s ease-in-out infinite;
+}
+
+.shape6 {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  bottom: 40%;
+  left: 25%;
+  opacity: 0.35;
+  animation: floatShape6 21s ease-in-out infinite;
+}
+
+.shape7 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  top: 70%;
+  right: 35%;
+  opacity: 0.3;
+  animation: floatShape7 17s ease-in-out infinite;
+}
+
+.shape8 {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  top: 25%;
+  left: 35%;
+  opacity: 0.35;
+  animation: floatShape8 23s ease-in-out infinite;
+}
+
+.shape9 {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  bottom: 35%;
+  right: 25%;
+  opacity: 0.3;
+  animation: floatShape9 20s ease-in-out infinite;
+}
+
+.shape10 {
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  top: 60%;
+  left: 45%;
+  opacity: 0.35;
+  animation: floatShape10 24s ease-in-out infinite;
+}
+
 @keyframes floatShape1 {
   0%,
   100% {
@@ -124,6 +196,84 @@
   }
   66% {
     transform: translate(30px, 20px);
+  }
+}
+
+@keyframes floatShape5 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, 20px);
+  }
+  66% {
+    transform: translate(-20px, -25px);
+  }
+}
+
+@keyframes floatShape6 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-25px, 30px);
+  }
+  66% {
+    transform: translate(25px, -20px);
+  }
+}
+
+@keyframes floatShape7 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(20px, -25px);
+  }
+  66% {
+    transform: translate(-30px, 15px);
+  }
+}
+
+@keyframes floatShape8 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-30px, -20px);
+  }
+  66% {
+    transform: translate(20px, 30px);
+  }
+}
+
+@keyframes floatShape9 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(25px, 25px);
+  }
+  66% {
+    transform: translate(-20px, -30px);
+  }
+}
+
+@keyframes floatShape10 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-25px, 20px);
+  }
+  66% {
+    transform: translate(30px, -25px);
   }
 }
 

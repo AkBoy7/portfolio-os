@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useTheme } from "../../hooks/useTheme";
 import { ThemeOption } from "./ThemeOption";
 import styles from "./ThemeSwitcher.module.css";
@@ -8,6 +9,12 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ onClose }) => {
   const { currentTheme, availableThemes, setTheme } = useTheme();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Auto-focus the menu when it opens
+    menuRef.current?.focus();
+  }, []);
 
   const handleThemeSelect = (themeId: string) => {
     setTheme(themeId);
@@ -18,14 +25,24 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ onClose }) => {
     e.stopPropagation();
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      onClose();
+    }
+  };
+
   return (
     <>
       <div className={styles.overlay} onClick={onClose} />
       <div
+        ref={menuRef}
         className={styles.themeMenu}
         role="dialog"
         aria-label="Theme selection"
         onClick={handleMenuClick}
+        onKeyDown={handleKeyDown}
+        tabIndex={-1}
       >
         <div className={styles.menuHeader}>
           <h3>Choose Theme</h3>

@@ -63,6 +63,14 @@
   width: 20px;
   height: 20px;
   transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .title {
@@ -86,6 +94,16 @@
 
   .taskbarItem:active {
     transform: scale(0.95);
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .icon svg {
+    width: 18px !important;
+    height: 18px !important;
   }
 
   .title {

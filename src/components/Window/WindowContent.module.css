@@ -34,12 +34,41 @@
   justify-content: center;
   min-height: 200px;
   color: var(--color-text-secondary);
-  gap: 12px;
+  gap: 16px;
+}
+
+.spinnerContainer {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .spinner {
-  font-size: 32px;
-  animation: spin 2s linear infinite;
+  color: var(--color-accent);
+  animation: spin 1s linear infinite;
+}
+
+.spinnerDot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.loadingText {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0;
+  animation: fadeInOut 1.5s ease-in-out infinite;
 }
 
 @keyframes spin {
@@ -51,10 +80,38 @@
   }
 }
 
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .spinner {
+  .spinner,
+  .spinnerDot,
+  .loadingText {
     animation: none;
+  }
+
+  .loadingText {
+    opacity: 1;
   }
 }
 
@@ -76,9 +133,25 @@
 
   .loading {
     min-height: 150px;
+    gap: 12px;
+  }
+
+  .spinnerContainer {
+    width: 40px;
+    height: 40px;
   }
 
   .spinner {
-    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .spinnerDot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .loadingText {
+    font-size: 13px;
   }
 }
