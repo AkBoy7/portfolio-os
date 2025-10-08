@@ -1,6 +1,26 @@
 import type { Theme } from "./types";
 
 export const themes: Theme[] = [
+  // 🌌 Pastel Twilight
+  {
+    id: "twilight",
+    name: "Pastel Twilight",
+    colors: {
+      background: "#F1F3FF",
+      backgroundGradient: "linear-gradient(135deg, #F1F3FF 0%, #EAE9FF 100%)",
+      surface: "#FFFFFF",
+      surfaceHover: "#FAFAFF",
+      border: "#B0A8FF",
+      text: "#2A2540",
+      textSecondary: "#5C5785",
+      primary: "#B0A8FF",
+      secondary: "#FFB3C6",
+      accent: "#A7F0E1",
+      danger: "#F76C6C",
+      shadow: "rgba(0, 0, 0, 0.12)",
+      overlay: "rgba(241, 243, 255, 0.9)",
+    },
+  },
   // 🌸 Sakura Dreams (kept original)
   {
     id: "sakura",
@@ -82,27 +102,6 @@ export const themes: Theme[] = [
       danger: "#D65C5C",
       shadow: "rgba(0, 0, 0, 0.1)",
       overlay: "rgba(255, 247, 232, 0.9)",
-    },
-  },
-
-  // 🌌 Pastel Twilight
-  {
-    id: "twilight",
-    name: "Pastel Twilight",
-    colors: {
-      background: "#F1F3FF",
-      backgroundGradient: "linear-gradient(135deg, #F1F3FF 0%, #EAE9FF 100%)",
-      surface: "#FFFFFF",
-      surfaceHover: "#FAFAFF",
-      border: "#B0A8FF",
-      text: "#2A2540",
-      textSecondary: "#5C5785",
-      primary: "#B0A8FF",
-      secondary: "#FFB3C6",
-      accent: "#A7F0E1",
-      danger: "#F76C6C",
-      shadow: "rgba(0, 0, 0, 0.12)",
-      overlay: "rgba(241, 243, 255, 0.9)",
     },
   },
 ];
