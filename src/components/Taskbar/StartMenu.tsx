@@ -154,7 +154,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
 
         <div className={styles.links}>
           <a
-            href="https://github.com"
+            href="https://github.com/AkBoy7"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
@@ -165,7 +165,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
             GitHub
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/akam-bilbas-26070b241/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
