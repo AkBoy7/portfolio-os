@@ -137,7 +137,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
             <div>
-              <div className={styles.statValue}>5+</div>
+              <div className={styles.statValue}>2+</div>
               <div className={styles.statLabel}>Years Experience</div>
             </div>
           </div>
@@ -146,7 +146,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
               <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
             </svg>
             <div>
-              <div className={styles.statValue}>50+</div>
+              <div className={styles.statValue}>3+</div>
               <div className={styles.statLabel}>Projects</div>
             </div>
           </div>

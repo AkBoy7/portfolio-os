@@ -1,4 +1,5 @@
 import React from "react";
+import { Minus, Square, Copy, X } from "lucide-react";
 import styles from "./WindowTitleBar.module.css";
 
 interface WindowTitleBarProps {
@@ -31,7 +32,7 @@ export const WindowTitleBar: React.FC<WindowTitleBarProps> = ({
           aria-label="Minimize window"
           title="Minimize"
         >
-          −
+          <Minus size={16} />
         </button>
         <button
           className={styles.maximizeButton}
@@ -42,7 +43,7 @@ export const WindowTitleBar: React.FC<WindowTitleBarProps> = ({
           aria-label={isMaximized ? "Restore window" : "Maximize window"}
           title={isMaximized ? "Restore" : "Maximize"}
         >
-          {isMaximized ? "❐" : "□"}
+          {isMaximized ? <Copy size={16} /> : <Square size={16} />}
         </button>
         <button
           className={styles.closeButton}
@@ -53,7 +54,7 @@ export const WindowTitleBar: React.FC<WindowTitleBarProps> = ({
           aria-label="Close window"
           title="Close"
         >
-          ×
+          <X size={16} />
         </button>
       </div>
     </div>

@@ -129,13 +129,13 @@ export const InfoWidget: React.FC<InfoWidgetProps> = ({ onThemeClick }) => {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span>5+ Years</span>
+            <span>2+ Years</span>
           </div>
           <div className={styles.stat}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
             </svg>
-            <span>50+ Projects</span>
+            <span>3+ Projects</span>
           </div>
         </div>
 

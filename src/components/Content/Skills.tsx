@@ -5,14 +5,7 @@ export const Skills = memo(() => {
   const skillCategories = [
     {
       title: "Frontend",
-      skills: [
-        "React",
-        "TypeScript",
-        "JavaScript",
-        "HTML/CSS",
-        "Tailwind",
-        "Next.js",
-      ],
+      skills: ["React", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind"],
     },
     {
       title: "Backend",
@@ -20,14 +13,14 @@ export const Skills = memo(() => {
         "Node.js",
         "Express",
         "PostgreSQL",
-        "MongoDB",
+        "Python",
         "REST APIs",
-        "GraphQL",
+        "Migrations",
       ],
     },
     {
       title: "Tools",
-      skills: ["Git", "Docker", "Figma", "VS Code", "Webpack", "Vite"],
+      skills: ["Git", "Docker", "VS Code", "Vite"],
     },
     {
       title: "Soft Skills",
@@ -36,7 +29,6 @@ export const Skills = memo(() => {
         "Teamwork",
         "Problem Solving",
         "Leadership",
-        "Mentoring",
         "Time Management",
       ],
     },
