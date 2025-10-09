@@ -799,11 +799,16 @@ export const SnakeGame = () => {
           <div className={styles.overlay}>
             <div className={styles.message}>
               <h2>Snake Game</h2>
-              <p>Press any arrow key or tap to start</p>
+              <p className={styles.objective}>
+                Eat the apple to grow. Don't hit the walls or yourself!
+              </p>
               <div className={styles.controls}>
                 <p>🎮 Desktop: Arrow keys to move, Space to pause</p>
-                <p>📱 Mobile: Swipe to change direction</p>
+                <p>📱 Mobile: Use buttons below to control</p>
               </div>
+              <p className={styles.startPrompt}>
+                Press any arrow key or tap UP button to start
+              </p>
             </div>
           </div>
         )}
@@ -833,8 +838,88 @@ export const SnakeGame = () => {
         )}
       </div>
 
-      <div className={styles.instructions}>
-        <p>Eat the red food to grow. Don't hit the walls or yourself!</p>
+      {/* Mobile Controls */}
+      <div className={styles.mobileControls}>
+        <div className={styles.controlsGrid}>
+          <div className={styles.controlRow}>
+            <button
+              className={styles.controlButton}
+              onClick={() => {
+                if (!gameStarted && !gameOver) {
+                  resetGame();
+                } else if (!gameOver && !isPaused && direction !== "DOWN") {
+                  setNextDirection("UP");
+                }
+              }}
+              aria-label="Move up"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7 14l5-5 5 5z" />
+              </svg>
+            </button>
+          </div>
+          <div className={styles.controlRow}>
+            <button
+              className={styles.controlButton}
+              onClick={() => {
+                if (!gameOver && !isPaused && direction !== "RIGHT") {
+                  setNextDirection("LEFT");
+                }
+              }}
+              aria-label="Move left"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M14 7l-5 5 5 5z" />
+              </svg>
+            </button>
+            <button
+              className={styles.controlButton}
+              onClick={() => {
+                if (!gameOver && !isPaused && direction !== "UP") {
+                  setNextDirection("DOWN");
+                }
+              }}
+              aria-label="Move down"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <button
+              className={styles.controlButton}
+              onClick={() => {
+                if (!gameOver && !isPaused && direction !== "LEFT") {
+                  setNextDirection("RIGHT");
+                }
+              }}
+              aria-label="Move right"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M10 7l5 5-5 5z" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
