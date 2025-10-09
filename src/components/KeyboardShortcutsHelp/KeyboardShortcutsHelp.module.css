@@ -167,7 +167,7 @@
 }
 
 .shortcutList dt {
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text);

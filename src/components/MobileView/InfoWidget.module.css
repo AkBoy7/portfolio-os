@@ -1,5 +1,5 @@
 .widget {
-  margin: 0 20px 20px;
+  margin: 0 20px 32px; /* Increased bottom margin to move up */
   background: var(--color-surface);
   border: 3px solid var(--color-border);
   border-radius: 20px;

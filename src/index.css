@@ -2,11 +2,6 @@
 :root {
   /* Theme colors - will be dynamically updated by theme store */
   --color-background: #ffe5ec;
-  --color-background-gradient: linear-gradient(
-    135deg,
-    #ffe5ec 0%,
-    #ffc9de 100%
-  );
   --color-surface: #fff0f5;
   --color-surface-hover: #ffe5f0;
   --color-border: #ffb3d9;
@@ -23,11 +18,14 @@
   transition: background-color 0.5s ease, color 0.5s ease;
 
   /* Typography */
-  font-family: "Quicksand", "Nunito", "Comfortaa", system-ui, -apple-system,
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
+
+  /* Monospace font for code elements */
+  --font-mono: "JetBrains Mono", "Fira Code", "Courier New", monospace;
 
   /* Rendering optimizations */
   font-synthesis: none;
@@ -60,21 +58,31 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--color-text);
+  letter-spacing: -0.02em;
 }
 
 h1 {
   font-size: 24px;
+  font-weight: 800;
 }
 
 h2 {
   font-size: 20px;
+  font-weight: 700;
 }
 
 h3 {
   font-size: 18px;
+  font-weight: 600;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
 }
 
 p {

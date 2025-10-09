@@ -7,7 +7,6 @@ export const themes: Theme[] = [
     name: "Pastel Twilight",
     colors: {
       background: "#F1F3FF",
-      backgroundGradient: "linear-gradient(135deg, #F1F3FF 0%, #EAE9FF 100%)",
       surface: "#FFFFFF",
       surfaceHover: "#FAFAFF",
       border: "#B0A8FF",
@@ -27,7 +26,6 @@ export const themes: Theme[] = [
     name: "Sakura Dreams",
     colors: {
       background: "#FFE8F0",
-      backgroundGradient: "linear-gradient(135deg, #FFE8F0 0%, #FFD4E5 100%)",
       surface: "#FFFFFF",
       surfaceHover: "#FFF5F9",
       border: "#FF6B9D",
@@ -48,7 +46,6 @@ export const themes: Theme[] = [
     name: "Mint Breeze",
     colors: {
       background: "#E8F8F5",
-      backgroundGradient: "linear-gradient(135deg, #E8F8F5 0%, #D0F0E8 100%)",
       surface: "#FFFFFF",
       surfaceHover: "#F5FCFA",
       border: "#48C9B0",
@@ -69,7 +66,6 @@ export const themes: Theme[] = [
     name: "Dreamscape",
     colors: {
       background: "#F3EEFB",
-      backgroundGradient: "linear-gradient(135deg, #F3EEFB 0%, #E7E2FA 100%)",
       surface: "#FFFFFF",
       surfaceHover: "#F9F7FD",
       border: "#A98DD8",
@@ -90,7 +86,6 @@ export const themes: Theme[] = [
     name: "Apricot Glow",
     colors: {
       background: "#FFF7E8",
-      backgroundGradient: "linear-gradient(135deg, #FFF7E8 0%, #FFEFD0 100%)",
       surface: "#FFFFFF",
       surfaceHover: "#FFF9F1",
       border: "#FFB46C",
