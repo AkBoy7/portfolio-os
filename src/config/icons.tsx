@@ -1,5 +1,12 @@
 import { lazy } from "react";
-import { User, FolderKanban, Award, Mail } from "lucide-react";
+import {
+  User,
+  FolderKanban,
+  Award,
+  Mail,
+  FileText,
+  Github,
+} from "lucide-react";
 import type { IconConfig } from "../types";
 
 // Lazy load content components for better performance
@@ -22,6 +29,16 @@ const Skills = lazy(() =>
 const Contact = lazy(() =>
   import("../components/Content/Contact").then((module) => ({
     default: module.Contact,
+  }))
+);
+const Resume = lazy(() =>
+  import("../components/Content/Resume").then((module) => ({
+    default: module.Resume,
+  }))
+);
+const GitHubStats = lazy(() =>
+  import("../components/Content/GitHubStats").then((module) => ({
+    default: module.GitHubStats,
   }))
 );
 
@@ -65,5 +82,25 @@ export const iconConfigs: IconConfig[] = [
     windowTitle: "Contact",
     defaultSize: { width: 650, height: 500 },
     minSize: { width: 300, height: 250 },
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    icon: <FileText size={48} />,
+    position: { x: 140, y: 40 },
+    windowContent: Resume,
+    windowTitle: "Resume / CV",
+    defaultSize: { width: 750, height: 600 },
+    minSize: { width: 400, height: 300 },
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    icon: <Github size={48} />,
+    position: { x: 140, y: 180 },
+    windowContent: GitHubStats,
+    windowTitle: "GitHub Statistics",
+    defaultSize: { width: 850, height: 650 },
+    minSize: { width: 400, height: 300 },
   },
 ];

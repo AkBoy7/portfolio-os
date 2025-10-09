@@ -1,0 +1,382 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.githubIcon {
+  color: var(--color-primary);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 4px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.username:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.viewButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--color-accent);
+  border: 3px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 var(--color-border);
+}
+
+.viewButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--color-border);
+}
+
+.viewButton:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--color-border);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.statCard {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  animation: scaleIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.statCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.statCard:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.statCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.statCard:nth-child(4) {
+  animation-delay: 0.25s;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--color-shadow);
+}
+
+.statCard.accent .statIcon {
+  background: var(--color-accent);
+}
+
+.statCard.primary .statIcon {
+  background: var(--color-primary);
+}
+
+.statCard.secondary .statIcon {
+  background: var(--color-secondary);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.section {
+  margin-bottom: 40px;
+  animation: slideUp 0.5s ease-out 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 20px;
+}
+
+.languagesContainer {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.languageItem {
+  margin-bottom: 20px;
+}
+
+.languageItem:last-child {
+  margin-bottom: 0;
+}
+
+.languageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.languageName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.languagePercent {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.progressBar {
+  height: 12px;
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 1s ease-out;
+  border-radius: 4px;
+}
+
+.contributionGraph {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.graphImage {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.graphNote {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.reposGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.repoCard {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.repoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--color-shadow);
+  border-color: var(--color-accent);
+}
+
+.repoName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.repoDescription {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.repoMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repoLanguage {
+  padding: 4px 10px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.repoStats {
+  display: flex;
+  gap: 12px;
+}
+
+.repoStat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  text-align: center;
+}
+
+.error svg {
+  color: var(--color-text-secondary);
+}
+
+.error p {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .viewButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reposGrid {
+    grid-template-columns: 1fr;
+  }
+}

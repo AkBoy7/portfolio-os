@@ -1,18 +1,18 @@
-/* CSS Variables for theming - Default theme (Sakura Dreams) */
+/* CSS Variables for theming - Default theme (Pastel Twilight) */
 :root {
   /* Theme colors - will be dynamically updated by theme store */
-  --color-background: #ffe5ec;
-  --color-surface: #fff0f5;
-  --color-surface-hover: #ffe5f0;
-  --color-border: #ffb3d9;
-  --color-text: #6b2e68;
-  --color-text-secondary: #8b4789;
-  --color-primary: #ffb3d9;
-  --color-secondary: #e6a8d7;
-  --color-accent: #ff9ecd;
-  --color-danger: #d91e63;
-  --color-shadow: rgba(255, 179, 217, 0.3);
-  --color-overlay: rgba(255, 229, 236, 0.8);
+  --color-background: #f1f3ff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fafaff;
+  --color-border: #b0a8ff;
+  --color-text: #1a1530;
+  --color-text-secondary: #3d3a5c;
+  --color-primary: #b0a8ff;
+  --color-secondary: #ffb3c6;
+  --color-accent: #a7f0e1;
+  --color-danger: #f76c6c;
+  --color-shadow: rgba(0, 0, 0, 0.12);
+  --color-overlay: rgba(241, 243, 255, 0.9);
 
   /* Smooth theme transitions */
   transition: background-color 0.5s ease, color 0.5s ease;
