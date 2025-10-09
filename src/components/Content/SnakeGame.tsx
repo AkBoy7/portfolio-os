@@ -4,20 +4,20 @@ import styles from "./SnakeGame.module.css";
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 type Position = { x: number; y: number };
 
-const GRID_SIZE = 16;
-const CELL_SIZE = 25;
-const INITIAL_SPEED = 150;
+const GRID_SIZE = 14;
+const CELL_SIZE = 22;
+const INITIAL_SPEED = 125;
 const SPEED_INCREMENT = 5;
 
 export const SnakeGame = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [snake, setSnake] = useState<Position[]>([
-    { x: 8, y: 8 },
-    { x: 7, y: 8 },
-    { x: 6, y: 8 },
-    { x: 5, y: 8 },
+    { x: 7, y: 7 },
+    { x: 6, y: 7 },
+    { x: 5, y: 7 },
+    { x: 4, y: 7 },
   ]);
-  const [food, setFood] = useState<Position>({ x: 12, y: 8 });
+  const [food, setFood] = useState<Position>({ x: 10, y: 7 });
   const [direction, setDirection] = useState<Direction>("RIGHT");
   const [nextDirection, setNextDirection] = useState<Direction>("RIGHT");
   const [gameOver, setGameOver] = useState(false);
@@ -60,10 +60,10 @@ export const SnakeGame = () => {
 
   const resetGame = useCallback(() => {
     const initialSnake = [
-      { x: 8, y: 8 },
-      { x: 7, y: 8 },
-      { x: 6, y: 8 },
-      { x: 5, y: 8 },
+      { x: 7, y: 7 },
+      { x: 6, y: 7 },
+      { x: 5, y: 7 },
+      { x: 4, y: 7 },
     ];
     setSnake(initialSnake);
     setFood(generateFood(initialSnake));
