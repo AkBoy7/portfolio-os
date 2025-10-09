@@ -5,3 +5,26 @@
   overflow: hidden;
   position: relative;
 }
+
+/* PWA Safe Area Support */
+@supports (padding: max(0px)) {
+  #root {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* Fullscreen PWA styles */
+@media (display-mode: fullscreen) {
+  body {
+    background-color: var(--color-background, #f1f3ff);
+  }
+}
+
+@media (display-mode: standalone) {
+  body {
+    background-color: var(--color-background, #f1f3ff);
+  }
+}
