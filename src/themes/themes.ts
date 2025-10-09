@@ -79,24 +79,6 @@ export const themes: Theme[] = [
       overlay: "rgba(255, 247, 232, 0.9)",
     },
   },
-  {
-    id: "otide",
-    name: "Afternoon Tide",
-    colors: {
-      background: "#FFFDFB", // off-white sky backdrop
-      surface: "#FFFFFF", // clean white for cards
-      surfaceHover: "#F5FBFF", // faint water shimmer
-      border: "#2C9ED8", // ocean blue edge
-      text: "#142F3E", // dark navy for contrast
-      textSecondary: "#3E6E82", // soft teal-blue
-      primary: "#FF7A1F", // Buizel orange (main)
-      secondary: "#FFD34E", // yellow flotation ring
-      accent: "#2CA7E0", // bright water-blue
-      danger: "#E64A3C", // coral red (pairs well with orange)
-      shadow: "rgba(0, 0, 0, 0.1)",
-      overlay: "rgba(240, 250, 255, 0.85)", // translucent ocean mist
-    },
-  },
 ];
 
 export const defaultTheme = themes[0];
