@@ -5,8 +5,6 @@
   background: var(--color-background);
   overflow: hidden;
   transition: background 0.6s ease;
-  /* Handle safe areas for PWA */
-  padding-top: env(safe-area-inset-top);
 }
 
 .homeScreen {
@@ -22,14 +20,18 @@
   padding-bottom: max(20px, env(safe-area-inset-bottom));
 }
 
-/* PWA Fullscreen Mode - Remove status bar spacing */
-@media (display-mode: fullscreen), (display-mode: standalone) {
+/* PWA Mode - Hide custom status bar, keep system status bar */
+@media (display-mode: standalone) {
+  .statusBar {
+    display: none;
+  }
+
   .homeScreen {
     top: 0;
   }
 
-  .statusBar {
-    padding-top: env(safe-area-inset-top);
+  .appView {
+    top: 0;
   }
 }
 
