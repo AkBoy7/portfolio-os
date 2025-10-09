@@ -1,0 +1,22 @@
+{
+  "name": "Akam Bilbas - Portfolio",
+  "short_name": "Akam Portfolio",
+  "description": "Portfolio of Akam Bilbas, Software Engineer & Back-End Developer",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#8B82E0",
+  "background_color": "#F1F3FF",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
