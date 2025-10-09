@@ -233,24 +233,43 @@ export const SnakeGame = () => {
 
   // Touch controls
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
     const touch = e.touches[0];
     touchStartRef.current = { x: touch.clientX, y: touch.clientY };
   };
 
+  const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault(); // Prevent scrolling while playing
+  };
+
   const handleTouchEnd = (e: React.TouchEvent) => {
+    e.preventDefault();
     if (!touchStartRef.current) return;
+
     if (!gameStarted && !gameOver) {
       resetGame();
+      touchStartRef.current = null;
       return;
     }
-    if (gameOver || isPaused) return;
+
+    if (gameOver) {
+      touchStartRef.current = null;
+      return;
+    }
+
+    if (isPaused) {
+      touchStartRef.current = null;
+      return;
+    }
 
     const touch = e.changedTouches[0];
     const deltaX = touch.clientX - touchStartRef.current.x;
     const deltaY = touch.clientY - touchStartRef.current.y;
-    const minSwipeDistance = 30;
+    const minSwipeDistance = 20; // Reduced for easier swiping
 
+    // Determine if swipe is more horizontal or vertical
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // Horizontal swipe
       if (Math.abs(deltaX) > minSwipeDistance) {
         if (deltaX > 0 && direction !== "LEFT") {
           setNextDirection("RIGHT");
@@ -259,6 +278,7 @@ export const SnakeGame = () => {
         }
       }
     } else {
+      // Vertical swipe
       if (Math.abs(deltaY) > minSwipeDistance) {
         if (deltaY > 0 && direction !== "UP") {
           setNextDirection("DOWN");
@@ -771,6 +791,7 @@ export const SnakeGame = () => {
           height={GRID_SIZE * CELL_SIZE}
           className={styles.canvas}
           onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         />
 
