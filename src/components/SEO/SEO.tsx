@@ -11,8 +11,8 @@ interface SEOProps {
 export const SEO: React.FC<SEOProps> = ({
   title = "Akam Bilbas - Software Engineer & Back-End Developer",
   description = "Portfolio of Akam Bilbas, a passionate Software Engineer and Back-End Developer specializing in modern web technologies.",
-  image = "https://akambilbas.com/og-image.jpg",
-  url = "https://akambilbas.com/",
+  image = "https://akambilbas.me/og-image.jpg",
+  url = "https://akambilbas.me/",
   type = "website",
 }) => {
   useEffect(() => {
