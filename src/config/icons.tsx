@@ -6,6 +6,7 @@ import {
   Mail,
   FileText,
   Github,
+  Gamepad2,
 } from "lucide-react";
 import type { IconConfig } from "../types";
 
@@ -39,6 +40,11 @@ const Resume = lazy(() =>
 const GitHubStats = lazy(() =>
   import("../components/Content/GitHubStats").then((module) => ({
     default: module.GitHubStats,
+  }))
+);
+const SnakeGame = lazy(() =>
+  import("../components/Content/SnakeGame").then((module) => ({
+    default: module.SnakeGame,
   }))
 );
 
@@ -102,5 +108,15 @@ export const iconConfigs: IconConfig[] = [
     windowTitle: "GitHub Statistics",
     defaultSize: { width: 850, height: 650 },
     minSize: { width: 400, height: 300 },
+  },
+  {
+    id: "snake-game",
+    label: "Snake",
+    icon: <Gamepad2 size={48} />,
+    position: { x: 140, y: 320 },
+    windowContent: SnakeGame,
+    windowTitle: "Snake Game",
+    defaultSize: { width: 600, height: 700 },
+    minSize: { width: 480, height: 600 },
   },
 ];
