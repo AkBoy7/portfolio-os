@@ -6,7 +6,7 @@ type Position = { x: number; y: number };
 
 const GRID_SIZE = 14;
 const CELL_SIZE = 22;
-const INITIAL_SPEED = 125;
+const INITIAL_SPEED = 100;
 const SPEED_INCREMENT = 5;
 
 export const SnakeGame = () => {
@@ -19,8 +19,13 @@ export const SnakeGame = () => {
   ]);
   const [food, setFood] = useState<Position>({ x: 10, y: 7 });
   const [direction, setDirection] = useState<Direction>("RIGHT");
-  const [nextDirection, setNextDirection] = useState<Direction>("RIGHT");
+  const nextDirectionRef = useRef<Direction>("RIGHT");
   const [gameOver, setGameOver] = useState(false);
+
+  // Helper to update next direction without causing re-render
+  const setNextDirection = useCallback((dir: Direction) => {
+    nextDirectionRef.current = dir;
+  }, []);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -103,13 +108,14 @@ export const SnakeGame = () => {
       INITIAL_SPEED - Math.floor(score / 5) * SPEED_INCREMENT
     );
     const gameLoop = setInterval(() => {
+      const currentDirection = nextDirectionRef.current;
+      setDirection(currentDirection);
+
       setSnake((prevSnake) => {
         const head = prevSnake[0];
         let newHead: Position;
 
-        setDirection(nextDirection);
-
-        switch (nextDirection) {
+        switch (currentDirection) {
           case "UP":
             newHead = { x: head.x, y: head.y - 1 };
             break;
@@ -173,7 +179,6 @@ export const SnakeGame = () => {
     gameStarted,
     gameOver,
     isPaused,
-    nextDirection,
     food,
     score,
     highScore,
