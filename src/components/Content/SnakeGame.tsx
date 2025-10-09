@@ -6,7 +6,7 @@ type Position = { x: number; y: number };
 
 const GRID_SIZE = 14;
 const CELL_SIZE = 22;
-const INITIAL_SPEED = 100;
+const INITIAL_SPEED = 150;
 const SPEED_INCREMENT = 5;
 
 export const SnakeGame = () => {
